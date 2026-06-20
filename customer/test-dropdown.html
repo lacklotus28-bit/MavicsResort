@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Test</title>
+    <style>
+        body { font-family: Arial; padding: 50px; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-toggle { 
+            padding: 10px 20px; 
+            background: #8b4513; 
+            color: white; 
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            list-style: none;
+            padding: 10px 0;
+            margin: 10px 0 0 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu li a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        .dropdown-menu li a:hover {
+            background: #f0f0f0;
+        }
+        .logout-link {
+            color: #dc3545 !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dropdown Test</h1>
+    <p>Click the button below to test dropdown:</p>
+    
+    <div class="dropdown">
+        <div class="dropdown-toggle">Demo User ▼</div>
+        <ul class="dropdown-menu">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">My Bookings</a></li>
+            <li><a href="#">Book Now</a></li>
+            <li><hr></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Billing History</a></li>
+            <li><a href="#">Payment Methods</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="#">Security Settings</a></li>
+            <li><hr></li>
+            <li><a href="#" class="logout-link">Logout</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = document.querySelector('.dropdown-toggle');
+        
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+            console.log('Clicked! Active:', dropdown.classList.contains('active'));
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

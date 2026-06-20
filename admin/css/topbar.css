@@ -1,0 +1,494 @@
+/* Topbar Styles - Mavic's Resort Admin */
+
+/* Main Header/Topbar */
+.main-header {
+    background: var(--white);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid #E5D5C8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* Header Left Section */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 3px;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+}
+
+.mobile-menu-btn span {
+    width: 20px;
+    height: 2px;
+    background: var(--dark-gray);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover span {
+    background: var(--primary-color);
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+}
+
+/* Header Right Section */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Notifications */
+.notifications {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.notification-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: var(--medium-gray);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.notification-btn:hover {
+    background: var(--light-gray);
+    color: var(--primary-color);
+}
+
+.notification-count {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--danger);
+    color: var(--white);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 2px solid var(--white);
+}
+
+/* Notifications Dropdown */
+.notifications-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 380px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid #E5D5C8;
+    margin-top: var(--spacing-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.notifications-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.notifications-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #E5D5C8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notifications-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--dark-gray);
+}
+
+.notifications-count {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.notifications-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item:hover {
+    background-color: #f9f9f9;
+}
+
+.notification-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.notification-icon.booking {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.notification-icon.inquiry {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: #17a2b8;
+}
+
+.notification-icon.payment {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-content p {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--dark-gray);
+}
+
+.notification-time {
+    font-size: 0.75rem;
+    color: var(--medium-gray);
+}
+
+.notification-empty {
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: var(--medium-gray);
+    font-style: italic;
+}
+
+.notifications-footer {
+    padding: var(--spacing-md);
+    border-top: 1px solid #E5D5C8;
+    text-align: center;
+}
+
+.view-all {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/* Admin Profile Dropdown */
+.admin-profile-dropdown {
+    position: relative;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: none;
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.admin-avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--white);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.admin-avatar-sm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.admin-info-sm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.admin-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+.admin-role {
+    font-size: 0.75rem;
+    color: var(--medium-gray);
+}
+
+.profile-btn i {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    transition: transform 0.3s ease;
+}
+
+.profile-btn.active i {
+    transform: rotate(180deg);
+}
+
+/* Profile Dropdown Menu */
+.profile-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 280px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid #E5D5C8;
+    margin-top: var(--spacing-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.profile-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-header {
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.admin-avatar-md {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--white);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.admin-avatar-md img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.admin-info-md {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-info-md .admin-name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.admin-email {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: #E5D5C8;
+    margin: var(--spacing-xs) 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: var(--dark-gray);
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f9f9f9;
+    color: var(--primary-color);
+}
+
+.dropdown-item i {
+    width: 16px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.dropdown-item span {
+    font-size: 0.9rem;
+}
+
+.dropdown-item.logout-btn {
+    color: var(--danger);
+}
+
+.dropdown-item.logout-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Animation for notification badge */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.notification-count {
+    animation: pulse 2s infinite;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .admin-info-sm {
+        display: none;
+    }
+    
+    .profile-btn i {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: var(--spacing-md);
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+        position: relative;
+    }
+    
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+    
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .notifications-dropdown {
+        width: 320px;
+        right: -80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: var(--spacing-sm);
+    }
+    
+    .main-header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .notifications-dropdown {
+        width: 280px;
+        right: -60px;
+    }
+    
+    .profile-dropdown-menu {
+        width: 250px;
+    }
+}

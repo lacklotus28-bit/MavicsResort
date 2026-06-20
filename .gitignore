@@ -1,0 +1,19 @@
+# Dependencies
+vendor/
+
+# Environment and config files
+.env
+.env.local
+config.php
+
+# XAMPP / Apache logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.iml

@@ -1,0 +1,901 @@
+/* Payment Management Page Styles */
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Topbar adjustments for payment management page */
+.main-header {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 260px;
+    background: #f8f9fa;
+    overflow-x: hidden;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+    .main-header {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.content-header h1 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.content-header p {
+    color: #6b7280;
+    margin: 0;
+}
+
+.content-header .btn-primary.has-changes {
+    background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+    }
+}
+
+/* Statistics Section */
+.stats-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.stat-card.total .stat-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stat-card.revenue .stat-icon {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.stat-card.average .stat-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.stat-card.methods .stat-icon {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-content h3 {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #9ca3af;
+}
+
+/* Payment Stats Table */
+.payment-stats-table {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-stats-table h3 {
+    font-size: 1.25rem;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+    font-weight: 700;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table thead th {
+    background: #f9fafb;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.stats-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.stats-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.stats-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.method-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.method-badge.method-cash {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.method-badge.method-bank_transfer {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.method-badge.method-gcash {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.method-badge.method-credit_card {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.percentage-bar {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: #f3f4f6;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.percentage-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+.percentage-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 0.875rem;
+}
+
+/* Settings Card */
+.settings-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Payment Methods Grid */
+.payment-methods-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.payment-method-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.payment-method-toggle:hover {
+    border-color: #667eea;
+    background: #f9fafb;
+}
+
+.method-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.method-icon-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.method-icon-badge.cash {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.method-icon-badge.bank_transfer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.method-icon-badge.gcash {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.method-icon-badge.credit_card {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.method-icon-badge.paymaya {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.method-info h4 {
+    font-size: 1.1rem;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+}
+
+.method-info p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+/* Form Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-control.changed {
+    border-color: #f59e0b;
+    background: #fffbeb;
+}
+
+/* QR Upload */
+.qr-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.file-input {
+    display: none;
+}
+
+.qr-preview {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.qr-preview img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Data Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table thead th {
+    background: #f9fafb;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.data-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.data-table a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.data-table a:hover {
+    text-decoration: underline;
+}
+
+/* Empty State */
+.empty-state-small {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.empty-state-small i {
+    font-size: 3rem;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+}
+
+.empty-state-small p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline {
+    background: white;
+    color: #667eea;
+    border: 2px solid #e5e7eb;
+}
+
+.btn-outline:hover {
+    background: #f9fafb;
+    border-color: #667eea;
+}
+
+/* Success Modal Overlay */
+.success-modal-overlay,
+.confirm-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.success-modal-overlay.show,
+.confirm-modal-overlay.show {
+    opacity: 1;
+}
+
+.success-modal,
+.confirm-modal {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.success-modal-overlay.show .success-modal,
+.confirm-modal-overlay.show .confirm-modal {
+    transform: scale(1);
+}
+
+.success-icon,
+.confirm-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: successPop 0.6s ease;
+}
+
+.success-icon {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.confirm-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-icon i {
+    font-size: 3.5rem;
+    color: white;
+}
+
+.confirm-icon i {
+    font-size: 3.5rem;
+    color: white;
+}
+
+.success-modal h2,
+.confirm-modal h2 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+}
+
+.success-modal p,
+.confirm-modal p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+}
+
+/* Confirm Modal Actions */
+.confirm-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.confirm-actions .btn {
+    min-width: 150px;
+}
+
+/* Page Success Indicator */
+.page-success-indicator {
+    position: fixed;
+    top: 100px;
+    right: 2rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.4s ease;
+}
+
+.page-success-indicator.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.page-success-indicator i {
+    font-size: 1.5rem;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: white;
+    padding: 1.25rem 1.75rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 9999;
+    min-width: 300px;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.4s ease;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification-success {
+    border-left: 4px solid #10b981;
+}
+
+.notification-success i {
+    color: #10b981;
+    font-size: 1.75rem;
+}
+
+.notification-error {
+    border-left: 4px solid #ef4444;
+}
+
+.notification-error i {
+    color: #ef4444;
+    font-size: 1.75rem;
+}
+
+.notification-info {
+    border-left: 4px solid #3b82f6;
+}
+
+.notification-info i {
+    color: #3b82f6;
+    font-size: 1.75rem;
+}
+
+.notification span {
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .content-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .content-header .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-method-toggle {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .method-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stats-table,
+    .data-table {
+        font-size: 0.875rem;
+    }
+
+    .stats-table thead th,
+    .stats-table tbody td,
+    .data-table thead th,
+    .data-table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .percentage-bar {
+        height: 25px;
+    }
+
+    .percentage-text {
+        font-size: 0.75rem;
+    }
+    
+    .success-modal,
+    .confirm-modal {
+        padding: 2rem;
+    }
+    
+    .success-icon,
+    .confirm-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .success-icon i,
+    .confirm-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .success-modal h2,
+    .confirm-modal h2 {
+        font-size: 1.5rem;
+    }
+    
+    .success-modal p,
+    .confirm-modal p {
+        font-size: 1rem;
+    }
+    
+    .confirm-actions {
+        flex-direction: column;
+    }
+    
+    .confirm-actions .btn {
+        width: 100%;
+    }
+    
+    .notification {
+        min-width: auto;
+        max-width: calc(100vw - 2rem);
+        left: 1rem;
+        right: 1rem;
+    }
+    
+    .page-success-indicator {
+        right: 1rem;
+        left: 1rem;
+        top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .method-icon-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+    
+    .success-modal,
+    .confirm-modal {
+        padding: 1.5rem;
+    }
+    
+    .success-modal h2,
+    .confirm-modal h2 {
+        font-size: 1.25rem;
+    }
+    
+    .success-modal p,
+    .confirm-modal p {
+        font-size: 0.95rem;
+    }
+}

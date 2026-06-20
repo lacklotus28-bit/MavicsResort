@@ -1,0 +1,317 @@
+/* Modal Styles - Mavic's Resort Admin */
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden !important;
+    padding-right: 0 !important;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(75,55,40,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Logout Modal Specific Styles */
+#logoutModal .modal {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 0;
+    max-width: 400px;
+    width: 90%;
+    max-height: 45vh;
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    transform: scale(0.8) translateY(20px);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+#logoutModal.show .modal {
+    transform: scale(1) translateY(0);
+}
+
+/* Large Modal */
+#logoutModal .modal.modal-lg {
+    max-width: 600px;
+}
+
+/* Extra Large Modal */
+#logoutModal .modal.modal-xl {
+    max-width: 800px;
+}
+
+/* Modal Header */
+#logoutModal .modal-header {
+    margin-bottom: 0;
+    padding: var(--spacing-xl);
+    border-bottom: 1px solid #E5D5C8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--light-gray), var(--white));
+}
+
+#logoutModal .modal-header h3 {
+    margin: 0;
+    color: var(--dark-gray);
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+#logoutModal .modal-header h3 i {
+    color: var(--primary-color);
+}
+
+#logoutModal .modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--medium-gray);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    line-height: 1;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logoutModal .modal-close:hover {
+    color: var(--danger);
+    background: rgba(205, 92, 92, 0.1);
+}
+
+/* Modal Body */
+#logoutModal .modal-body {
+    padding: var(--spacing-xl);
+    margin-bottom: 0;
+}
+
+#logoutModal .modal-body p {
+    margin: 0;
+    color: var(--medium-gray);
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+/* Modal Footer */
+#logoutModal .modal-footer {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-top: 1px solid #E5D5C8;
+    background: var(--light-gray);
+    margin: 0;
+}
+
+#logoutModal .modal-footer .btn {
+    min-width: 100px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+#logoutModal .modal-footer .btn-danger {
+    background: linear-gradient(135deg, var(--danger), #B22222);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#logoutModal .modal-footer .btn-danger:hover {
+    background: linear-gradient(135deg, #B22222, #8B0000);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(205, 92, 92, 0.3);
+}
+
+#logoutModal .modal-footer .btn-secondary {
+    background: var(--white);
+    color: var(--medium-gray);
+    border: 2px solid #E5D5C8;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#logoutModal .modal-footer .btn-secondary:hover {
+    background: var(--light-gray);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Confirmation Modal Styles */
+.modal.confirmation-modal .modal-header {
+    color: var(--warning);
+}
+
+.modal.confirmation-modal .modal-header i {
+    color: var(--warning);
+    margin-right: var(--spacing-sm);
+}
+
+.modal.danger-modal .modal-header {
+    color: var(--danger);
+}
+
+.modal.danger-modal .modal-header i {
+    color: var(--danger);
+    margin-right: var(--spacing-sm);
+}
+
+.modal.success-modal .modal-header {
+    color: var(--success);
+}
+
+.modal.success-modal .modal-header i {
+    color: var(--success);
+    margin-right: var(--spacing-sm);
+}
+
+/* Loading Modal */
+.modal.loading-modal {
+    pointer-events: none;
+}
+
+.modal.loading-modal .modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Form Modal Styles */
+.modal-form .form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.modal-form input,
+.modal-form textarea,
+.modal-form select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid #E5D5C8;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus,
+.modal-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 102, 74, 0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #logoutModal .modal {
+        margin: var(--spacing-md);
+        max-width: calc(100% - 2rem);
+        max-height: calc(100% - 2rem);
+    }
+    
+    #logoutModal .modal-header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: flex-start;
+        text-align: left;
+        padding: var(--spacing-lg);
+    }
+    
+    #logoutModal .modal-body {
+        padding: var(--spacing-lg);
+    }
+    
+    #logoutModal .modal-footer {
+        flex-direction: column-reverse;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-lg);
+    }
+    
+    #logoutModal .modal-footer .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #logoutModal .modal {
+        margin: var(--spacing-sm);
+        max-width: calc(100% - 1rem);
+        max-height: calc(100% - 1rem);
+    }
+    
+    #logoutModal .modal-header {
+        padding: var(--spacing-md);
+    }
+    
+    #logoutModal .modal-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    #logoutModal .modal-body {
+        padding: var(--spacing-md);
+    }
+    
+    #logoutModal .modal-footer {
+        padding: var(--spacing-md);
+    }
+}

@@ -1,0 +1,1022 @@
+/* Homepage Styles - Updated with 3x3 Grid Layout and Back to Top */
+
+/* Main Content */
+#main-content {
+    padding-top: 140px; /* Account for fixed header */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(139, 69, 19, 0.7) 0%,
+        rgba(93, 64, 55, 0.5) 50%,
+        rgba(139, 69, 19, 0.8) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 800px;
+    animation: heroFadeUp 1.2s ease-out;
+}
+
+.hero-title {
+    color:#d4a574;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    animation: heroSlideDown 1s ease-out 0.3s both;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffbd1c;
+    margin-bottom: 1.5rem;
+    animation: heroSlideDown 1s ease-out 0.6s both;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    animation: heroSlideDown 1s ease-out 0.9s both;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: heroSlideUp 1s ease-out 1.2s both;
+}
+
+.btn-large {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Hero Navigation */
+.hero-navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    transform: translateY(-50%);
+}
+
+.hero-nav-btn {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.hero-nav-btn:hover {
+    background: var(--primary-brown);
+    border-color: var(--primary-brown);
+    transform: scale(1.1);
+}
+
+/* Hero Indicators */
+.hero-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 15px;
+}
+
+.hero-indicators .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-indicators .indicator.active {
+    background: var(--golden-brown);
+    border-color: var(--golden-brown);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator a:hover {
+    opacity: 1;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-brown), var(--secondary-brown));
+    color: var(--text-light);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 25px var(--shadow-dark);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--dark-brown);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px var(--shadow-dark);
+}
+
+.back-to-top:active {
+    transform: translateY(-1px);
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--dark-brown);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-brown), var(--golden-brown));
+    border-radius: 2px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Features Section */
+.features-section {
+    background: var(--warm-white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: var(--text-light);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-brown), var(--golden-brown));
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--shadow-dark);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-brown), var(--secondary-brown));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--dark-brown);
+}
+
+.feature-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Venues Preview Section */
+.venues-preview {
+    background: var(--text-light);
+}
+
+.venues-carousel {
+    margin-top: 2rem;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: var(--primary-brown);
+}
+
+/* Updated Venues Grid - 3x3 Layout with Centering for Few Items */
+.venues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/* Force 3 columns on larger screens, but center if fewer items */
+@media (min-width: 1200px) {
+    .venues-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Center 1-2 venues on large screens */
+    .venues-grid:has(.venue-card:nth-child(1):last-child) {
+        grid-template-columns: 320px;
+        justify-content: center;
+    }
+    
+    .venues-grid:has(.venue-card:nth-child(2):last-child) {
+        grid-template-columns: repeat(2, 320px);
+        justify-content: center;
+        max-width: 700px;
+    }
+}
+
+/* 2 columns on medium screens, but center single item */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .venues-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    /* Center single venue on medium screens */
+    .venues-grid:has(.venue-card:nth-child(1):last-child) {
+        grid-template-columns: 320px;
+        justify-content: center;
+    }
+}
+
+/* Fallback for browsers that don't support :has() */
+.venues-grid.single-venue {
+    grid-template-columns: 320px !important;
+    justify-content: center !important;
+}
+
+.venues-grid.two-venues {
+    grid-template-columns: repeat(2, 320px) !important;
+    justify-content: center !important;
+    max-width: 700px !important;
+}
+
+/* Updated Venue Cards */
+.venue-card {
+    background: var(--text-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure equal height for all cards */
+}
+
+.venue-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--shadow-dark);
+}
+
+.venue-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent image area from shrinking */
+}
+
+.venue-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.venue-card:hover .venue-image img {
+    transform: scale(1.1);
+}
+
+.venue-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(139, 69, 19, 0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.venue-card:hover .venue-overlay {
+    opacity: 1;
+}
+
+.venue-info {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allow content area to expand */
+    display: flex;
+    flex-direction: column;
+}
+
+.venue-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-brown);
+}
+
+.venue-info p {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    flex-grow: 1; /* Allow description to expand and push meta to bottom */
+}
+
+.venue-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--primary-brown);
+    font-weight: 600;
+    margin-top: auto; /* Push to bottom */
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+}
+
+.venue-amenities {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.venue-amenities small {
+    color: #666;
+    font-size: 0.85rem;
+    display: block;
+}
+
+.venue-amenities i {
+    color: var(--primary-brown);
+    margin-right: 5px;
+}
+
+/* Statistics Section */
+.stats-section {
+    background: linear-gradient(135deg, var(--primary-brown), var(--dark-brown));
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.3;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--golden-brown);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background: var(--cream);
+}
+
+.testimonials-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 300px;
+}
+
+.testimonial-item {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.testimonial-item.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.testimonial-content {
+    background: var(--text-light);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px var(--shadow);
+    position: relative;
+}
+
+.testimonial-text {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.testimonial-text .fa-quote-left,
+.testimonial-text .fa-quote-right {
+    color: var(--light-brown);
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.testimonial-text .fa-quote-left {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.testimonial-text .fa-quote-right {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+}
+
+.testimonial-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    font-style: italic;
+    margin: 0 30px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.author-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--light-brown);
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    margin-bottom: 0.25rem;
+    color: var(--dark-brown);
+    font-size: 1.1rem;
+}
+
+.author-info p {
+    color: var(--primary-brown);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    display: flex;
+    gap: 3px;
+}
+
+.rating .fa-star {
+    color: var(--golden-brown);
+    font-size: 0.9rem;
+}
+
+/* Testimonial Navigation */
+.testimonial-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.testimonial-nav {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--light-brown);
+    background: var(--text-light);
+    color: var(--primary-brown);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.testimonial-nav:hover {
+    background: var(--primary-brown);
+    color: var(--text-light);
+    border-color: var(--primary-brown);
+}
+
+.testimonial-indicators {
+    display: flex;
+    gap: 10px;
+}
+
+.testimonial-indicators .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--light-brown);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-indicators .indicator.active {
+    background: var(--primary-brown);
+    border-color: var(--primary-brown);
+}
+
+/* Call to Action Section */
+.cta-section {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Animations */
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    
+    .feature-card {
+        padding: 2rem;
+    }
+    
+    .back-to-top {
+        width: 55px;
+        height: 55px;
+        bottom: 25px;
+        right: 25px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #main-content {
+        padding-top: 120px;
+    }
+    
+    .hero {
+        height: 80vh;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-large {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .hero-navigation {
+        padding: 0 20px;
+    }
+    
+    .hero-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+    
+    /* Venues grid - single column on mobile */
+    .venues-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        max-width: 400px;
+    }
+    
+    .venue-card {
+        max-width: 100%;
+    }
+    
+    .venue-info {
+        padding: 1.25rem;
+    }
+    
+    .venue-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .venue-info p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .venue-meta {
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .venue-meta span {
+        flex-basis: 100%;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .testimonial-content {
+        padding: 2rem;
+    }
+    
+    .testimonial-text p {
+        margin: 0 15px;
+        font-size: 1rem;
+    }
+    
+    .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .back-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .testimonial-content {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-navigation {
+        gap: 20px;
+    }
+    
+    .testimonial-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 0.9rem;
+    }
+}

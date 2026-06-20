@@ -1,0 +1,812 @@
+/* Booking Details Page Styles */
+
+/* Import CSS Variables */
+:root {
+    --primary-brown: #8B4513;
+    --secondary-brown: #A0522D;
+    --light-brown: #D2B48C;
+    --dark-brown: #5D4037;
+    --cream: #F5F5DC;
+    --warm-white: #FFF8DC;
+    --earth-tone: #CD853F;
+    --golden-brown: #B8860B;
+    --text-dark: #3E2723;
+    --text-light: #FFFFFF;
+    --accent-green: #6B8E23;
+    --shadow: rgba(139, 69, 19, 0.1);
+    --shadow-dark: rgba(139, 69, 19, 0.3);
+}
+
+/* ========================================
+   LAYOUT & STRUCTURE
+======================================== */
+
+#main-content {
+    background: #f8f9fa;
+    min-height: 100vh;
+    padding: 0;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* Only apply to containers in main content, not footer */
+#main-content .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ========================================
+   BOOKING HEADER
+======================================== */
+
+.booking-header {
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+    padding: 2.5rem 0;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: white;
+    gap: 0.75rem;
+}
+
+.back-link i {
+    font-size: 0.9rem;
+}
+
+.booking-header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    color: white;
+}
+
+.booking-meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.booking-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.booking-meta i {
+    font-size: 1.1rem;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-end;
+}
+
+/* Status Badges */
+.status-badge,
+.payment-badge {
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: capitalize;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.status-badge {
+    background: white;
+    color: #8B4513;
+}
+
+.status-pending {
+    background: #fbbf24;
+    color: #78350f;
+}
+
+.status-confirmed {
+    background: #10b981;
+    color: white;
+}
+
+.status-completed {
+    background: #8B4513;
+    color: white;
+}
+
+.status-cancelled {
+    background: #ef4444;
+    color: white;
+}
+
+.payment-badge {
+    background: white;
+    color: #8B4513;
+}
+
+.payment-pending {
+    background: #f59e0b;
+    color: white;
+}
+
+.payment-partial {
+    background: #8b5cf6;
+    color: white;
+}
+
+.payment-paid {
+    background: #10b981;
+    color: white;
+}
+
+.payment-refunded {
+    background: #6b7280;
+    color: white;
+}
+
+/* ========================================
+   DETAILS LAYOUT
+======================================== */
+
+.booking-details-section {
+    padding: 3rem 0;
+}
+
+.details-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ========================================
+   DETAIL CARDS
+======================================== */
+
+.detail-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.detail-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+    padding: 1.5rem 2rem;
+    border-bottom: 3px solid #D2691E;
+}
+
+.card-header h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+.card-header i {
+    font-size: 1.4rem;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* ========================================
+   DETAIL GRID
+======================================== */
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.detail-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 1.05rem;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+/* Special Requests */
+.special-requests {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #f3f4f6;
+}
+
+.special-requests h3 {
+    color: #8B4513;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.special-requests p {
+    color: #4b5563;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* ========================================
+   VENUE SECTION
+======================================== */
+
+.venue-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.venue-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.detail-card:hover .venue-image img {
+    transform: scale(1.05);
+}
+
+.card-body h3 {
+    color: #8B4513;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.venue-description {
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.venue-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.venue-info .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.venue-info .info-item i {
+    color: #D2691E;
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   PACKAGE SECTION
+======================================== */
+
+.package-inclusions {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #f3f4f6;
+}
+
+.package-inclusions h4 {
+    color: #8B4513;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.package-inclusions ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.package-inclusions li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #4b5563;
+    font-size: 1rem;
+    padding: 0.75rem;
+    background: #f9fafb;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.package-inclusions li:hover {
+    background: #f3f4f6;
+    transform: translateX(5px);
+}
+
+.package-inclusions li i {
+    color: #10b981;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   PAYMENT HISTORY
+======================================== */
+
+.payment-history-table {
+    overflow-x: auto;
+}
+
+.payment-history-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payment-history-table thead {
+    background: #f9fafb;
+}
+
+.payment-history-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.payment-history-table td {
+    padding: 1rem;
+    color: #4b5563;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.payment-history-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.payment-history-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.payment-status {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.no-payments {
+    text-align: center;
+    color: #9ca3af;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* ========================================
+   SIDEBAR CARDS
+======================================== */
+
+.sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.summary-card,
+.actions-card,
+.help-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.summary-card h3,
+.actions-card h3,
+.help-card h3 {
+    color: #8B4513;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Summary Card */
+.summary-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.summary-item span:first-child {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.summary-item .amount {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #8B4513;
+}
+
+.summary-item.total {
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+    margin-top: 0.5rem;
+}
+
+.summary-item.total span {
+    color: white;
+}
+
+.summary-item.total .amount {
+    color: #FFD700;
+    font-size: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #D2691E 0%, #CD853F 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4);
+}
+
+.btn-outline {
+    background: white;
+    color: #8B4513;
+    border: 2px solid #e5e7eb;
+}
+
+.btn-outline:hover {
+    background: #f9fafb;
+    border-color: #8B4513;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Help Card - Only apply to sidebar help card */
+.help-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.help-card .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.help-card .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #4b5563;
+    padding: 0.75rem;
+    background: #f9fafb;
+    border-radius: 6px;
+}
+
+.help-card .contact-item i {
+    color: #D2691E;
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   FOOTER OVERRIDES - Use !important to ensure they apply
+======================================== */
+
+/* Ensure footer container doesn't get affected by page styles */
+#main-footer .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+#main-footer .footer-main .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0 -15px !important;
+}
+
+#main-footer .footer-main .row > [class*="col-"] {
+    padding: 0 15px !important;
+}
+
+#main-footer .footer-section {
+    margin-bottom: 40px !important;
+}
+
+#main-footer .footer-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Override contact-info and contact-item styles specifically for footer */
+#main-footer .contact-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+#main-footer .contact-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+#main-footer .contact-item i {
+    flex-shrink: 0 !important;
+    width: 20px !important;
+    font-size: 1.1rem !important;
+    margin-top: 2px !important;
+    text-align: center !important;
+}
+
+#main-footer .contact-details {
+    flex: 1 !important;
+}
+
+#main-footer .contact-details strong {
+    display: block !important;
+    margin-bottom: 3px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+}
+
+#main-footer .contact-details span {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+}
+
+/* ========================================
+   PRINT STYLES
+======================================== */
+
+@media print {
+    #main-content {
+        padding-top: 0;
+    }
+    
+    .booking-header,
+    .sidebar,
+    .back-link,
+    .action-buttons {
+        display: none !important;
+    }
+    
+    .details-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1200px) {
+    .details-layout {
+        grid-template-columns: 1fr 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    #main-content {
+        padding-top: 70px;
+    }
+    
+    .details-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        position: static;
+        top: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #main-content {
+        padding-top: 60px;
+    }
+    
+    #main-content .container {
+        padding: 0 1rem;
+    }
+    
+    .booking-header {
+        padding: 2rem 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .booking-header h1 {
+        font-size: 2rem;
+    }
+    
+    .booking-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .header-right {
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .status-badge,
+    .payment-badge {
+        flex: 1;
+        text-align: center;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .venue-image {
+        height: 200px;
+    }
+    
+    .booking-details-section {
+        padding: 2rem 0;
+    }
+    
+    .sidebar {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .card-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .detail-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+    }
+    
+    .payment-history-table {
+        font-size: 0.85rem;
+    }
+    
+    .payment-history-table th,
+    .payment-history-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}

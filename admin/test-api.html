@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test - Contact Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .error {
+            border-left-color: #dc3545;
+            color: #dc3545;
+        }
+        .success {
+            border-left-color: #28a745;
+            color: #28a745;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Management API Test</h1>
+    
+    <div class="test-section">
+        <h2>1. Test Database Connection</h2>
+        <button onclick="testDatabase()">Test Connection</button>
+        <div id="dbResult" class="result" style="display:none;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Test Get Message API</h2>
+        <input type="number" id="messageId" placeholder="Message ID" value="1">
+        <button onclick="testGetMessage()">Get Message</button>
+        <div id="getResult" class="result" style="display:none;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Check Session</h2>
+        <button onclick="checkSession()">Check Session</button>
+        <div id="sessionResult" class="result" style="display:none;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Test Files Exist</h2>
+        <button onclick="checkFiles()">Check Files</button>
+        <div id="filesResult" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        function testDatabase() {
+            const result = document.getElementById('dbResult');
+            result.style.display = 'block';
+            result.className = 'result';
+            result.textContent = 'Testing database connection...';
+            
+            fetch('test-db.php')
+                .then(r => r.text())
+                .then(text => {
+                    result.textContent = text;
+                    result.className = text.includes('success') ? 'result success' : 'result error';
+                })
+                .catch(e => {
+                    result.textContent = 'Error: ' + e.message;
+                    result.className = 'result error';
+                });
+        }
+        
+        function testGetMessage() {
+            const id = document.getElementById('messageId').value;
+            const result = document.getElementById('getResult');
+            result.style.display = 'block';
+            result.className = 'result';
+            result.textContent = 'Fetching message...';
+            
+            fetch(`api/get-message.php?id=${id}`)
+                .then(r => r.text())
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        result.textContent = JSON.stringify(data, null, 2);
+                        result.className = data.success ? 'result success' : 'result error';
+                    } catch (e) {
+                        result.textContent = 'Response is not JSON:\n\n' + text;
+                        result.className = 'result error';
+                    }
+                })
+                .catch(e => {
+                    result.textContent = 'Error: ' + e.message;
+                    result.className = 'result error';
+                });
+        }
+        
+        function checkSession() {
+            const result = document.getElementById('sessionResult');
+            result.style.display = 'block';
+            result.textContent = 'Checking session...';
+            
+            fetch('check-session.php')
+                .then(r => r.text())
+                .then(text => {
+                    result.textContent = text;
+                })
+                .catch(e => {
+                    result.textContent = 'Error: ' + e.message;
+                    result.className = 'result error';
+                });
+        }
+        
+        function checkFiles() {
+            const result = document.getElementById('filesResult');
+            result.style.display = 'block';
+            result.textContent = 'Checking files...';
+            
+            fetch('check-files.php')
+                .then(r => r.text())
+                .then(text => {
+                    result.textContent = text;
+                })
+                .catch(e => {
+                    result.textContent = 'Error: ' + e.message;
+                    result.className = 'result error';
+                });
+        }
+    </script>
+</body>
+</html>
